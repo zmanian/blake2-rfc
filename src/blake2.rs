@@ -239,7 +239,8 @@ macro_rules! blake2_impl {
             }
 
             #[cfg_attr(feature = "clippy", allow(cast_possible_truncation, eq_op))]
-            fn compress(&mut self, f0: $word, f1: $word) {
+            #[doc(hidden)]
+            pub fn compress(&mut self, f0: $word, f1: $word) {
                 use $crate::blake2::SIGMA;
 
                 let m = &self.m;
